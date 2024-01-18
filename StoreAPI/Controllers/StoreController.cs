@@ -12,12 +12,10 @@ namespace StoreAPI.Controllers
     public class StoreController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IMapper _mapper;
 
         public StoreController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
-            _mapper = mapper;
         }
 
         [HttpPost]

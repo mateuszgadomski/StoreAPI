@@ -19,6 +19,8 @@ namespace Store.Application.Store.Commands.CreateStore
                 .MaximumLength(20).WithMessage("Name should have maxium of 20 characters")
                 .Custom((value, context) =>
                 {
+                    var stores = repository.GetAll();
+
                     // TODO: Sprawdzić  czy inny warsztat nie posiada takiej samej nazwy
                 });
 
