@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Store.Application.Product.Commands.CreateProduct;
 using Store.Application.Store;
 using Store.Application.Store.Commands.CreateStore;
 using Store.Application.Store.Queries.GetAllStores;
@@ -39,6 +40,15 @@ namespace StoreAPI.Controllers
         {
             var store = await _mediator.Send(new GetStoreByNameQuery(encodedName));
             return Ok(store);
+        }
+
+        [HttpPost]
+        [Route("{storeId}/product/create")]
+        public async Task<ActionResult> CreateProduct(CreateProductCommand command, [FromRoute] string storeId)
+        {
+            command.StoreId = storeId;
+            var storeProduct = await _mediator.Send(command);
+            return Ok(storeProduct);
         }
     }
 }

@@ -13,5 +13,7 @@ namespace Store.Domain.Interfaces
         Task<IEnumerable<Domain.Entities.Store>> GetAll();
 
         Task<Domain.Entities.Store> GetByName(string encodedName);
+
+        Task CreateProduct(Domain.Entities.StoreProduct storeProduct, string storeId);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Store.Application.Product;
 using Store.Application.Store;
 using Store.Domain.Entities;
 using System;
@@ -27,6 +28,9 @@ namespace Store.Application.Mappings
                 .ForMember(dto => dto.City, opt => opt.MapFrom(src => src.ContactDetails.City))
                 .ForMember(dto => dto.PostalCode, opt => opt.MapFrom(src => src.ContactDetails.PostalCode))
                 .ForMember(dto => dto.PhoneNumber, opt => opt.MapFrom(src => src.ContactDetails.PhoneNumber));
+
+            CreateMap<Domain.Entities.StoreProduct, StoreProductDto>()
+                .ReverseMap();
         }
     }
 }

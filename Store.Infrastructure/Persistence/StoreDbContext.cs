@@ -14,6 +14,7 @@ namespace Store.Infrastructure.Persistence
         }
 
         public DbSet<Domain.Entities.Store> Stores { get; set; }
+        public DbSet<Domain.Entities.StoreProduct> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

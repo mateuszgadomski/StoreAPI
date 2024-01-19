@@ -71,7 +71,7 @@ namespace Store.Infrastructure.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("StoreProduct");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.Store", b =>

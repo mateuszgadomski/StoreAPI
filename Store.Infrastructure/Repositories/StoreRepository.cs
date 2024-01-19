@@ -34,5 +34,12 @@ namespace Store.Infrastructure.Repositories
 
             return store!;
         }
+
+        public async Task CreateProduct(Domain.Entities.StoreProduct storeProduct, string storeId)
+        {
+            storeProduct.StoreId = int.Parse(storeId);
+            _dbContext.Products.Add(storeProduct);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

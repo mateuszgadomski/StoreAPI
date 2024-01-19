@@ -12,7 +12,7 @@ using Store.Infrastructure.Persistence;
 namespace Store.Infrastructure.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20240118165906_Init")]
+    [Migration("20240119193458_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -74,7 +74,7 @@ namespace Store.Infrastructure.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("StoreProduct");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.Store", b =>

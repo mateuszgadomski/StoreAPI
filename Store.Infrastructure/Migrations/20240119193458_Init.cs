@@ -32,7 +32,7 @@ namespace Store.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StoreProduct",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -43,9 +43,9 @@ namespace Store.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StoreProduct", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StoreProduct_Stores_StoreId",
+                        name: "FK_Products_Stores_StoreId",
                         column: x => x.StoreId,
                         principalTable: "Stores",
                         principalColumn: "Id",
@@ -53,8 +53,8 @@ namespace Store.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_StoreProduct_StoreId",
-                table: "StoreProduct",
+                name: "IX_Products_StoreId",
+                table: "Products",
                 column: "StoreId");
         }
 
@@ -62,7 +62,7 @@ namespace Store.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "StoreProduct");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Stores");
