@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Store.Application.Store;
 using Store.Application.Store.Commands.CreateStore;
 using Store.Application.Store.Queries.GetAllStores;
+using Store.Application.Store.Queries.GetStoreByName;
 
 namespace StoreAPI.Controllers
 {
@@ -30,6 +31,14 @@ namespace StoreAPI.Controllers
         {
             var stores = await _mediator.Send(new GetAllStoresQuery());
             return Ok(stores);
+        }
+
+        [HttpGet]
+        [Route("/getByName/{encodedName}")]
+        public async Task<ActionResult<StoreDto>> GetByName([FromRoute] string encodedName)
+        {
+            var store = await _mediator.Send(new GetStoreByNameQuery(encodedName));
+            return Ok(store);
         }
     }
 }

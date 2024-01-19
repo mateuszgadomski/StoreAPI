@@ -26,5 +26,13 @@ namespace Store.Infrastructure.Repositories
 
         public async Task<IEnumerable<Domain.Entities.Store>> GetAll()
             => await _dbContext.Stores.ToListAsync();
+
+        public async Task<Domain.Entities.Store> GetByName(string encodedName)
+        {
+            var store = await _dbContext.Stores
+                .FirstOrDefaultAsync(s => s.Name == encodedName.ToLower());
+
+            return store!;
+        }
     }
 }
